@@ -4,6 +4,8 @@
 <h2><%= @book.category %></h2>
 <h2><%= @book.number_of_pages %></h2>
 
+<%= render @book.reviews %>
+<%= link_to "Add Review" , new_book_review_path(@book) %>
 <%= link_to "Back" , root_path %>
 <%= link_to "Edit" , edit_book_path(@book) %>
 <%= link_to "Delete" , book_path(@book) , method: :delete , data: { confirm: "Are you sure ?"} %>

@@ -2,9 +2,12 @@ class BooksController < ApplicationController
   before_action :find_book , only: [:show , :edit, :update, :destroy]
 
   def index
-    @books = Book.all.order("created_at DESC")
+    @books = if params[:term]
+      Book.where('title LIKE ?', "%#{params[:term]}%")
+    else
+      Book.all.order("created_at DESC")
+    end
   end
-
   def new
     @book = Book.new
   end

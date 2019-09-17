@@ -1,5 +1,11 @@
+<%= form_tag(books_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+
 <% @books.each do |book| %>
 	<h2><%= link_to book.title , book_path(book) %></h2>
 
-<% end %>	
+<% end %>
 <%= link_to "Add Book" , new_book_path %>

@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   resources :books do
     resources :reviews
   end
-  resources :users
 
-  resources :relationships,only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
+  resources :book_statuses
+
   root 'books#index'
 
 end

@@ -1,0 +1,2 @@
+module BookStatusHelper
+end

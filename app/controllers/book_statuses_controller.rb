@@ -1,6 +1,10 @@
 class BookStatusesController < ApplicationController
   before_action :find_review , only: [:edit , :update , :destroy]
 
+  def index
+    @book_statuses = BookStatus.all.order(created_at: :desc)
+  end
+
   def create
     @book_status = current_user.book_statuses.new(book_status_params)
     if @book_status.save

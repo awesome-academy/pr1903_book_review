@@ -4,3 +4,8 @@
 <%= link_to "Back" , root_path %>
 <%= link_to "Edit" , edit_user_path(@user) %>
 <%= link_to "Delete" , user_path(@user) , method: :delete , data: { confirm: "Are you sure ?"} %>
+<% @books.each do |book| %>
+  <h2><%= book.title %></h2>
+
+<% end %>
+

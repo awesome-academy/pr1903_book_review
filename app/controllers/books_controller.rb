@@ -14,6 +14,7 @@ class BooksController < ApplicationController
 
   def show
     @request = current_user.requests.find_by(book_id: @book.id)
+    @book_status = current_user.book_statuses.find_by(book_id: @book.id)
   end
 
   def create

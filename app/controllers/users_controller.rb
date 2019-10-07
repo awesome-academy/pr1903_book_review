@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @books = @user.readed_books
   end
 
   def edit

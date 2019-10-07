@@ -6,7 +6,11 @@
 
 <%= render @book.reviews %>
 <%= link_to "Read", book_statuses_path(book_status: {book_id: @book.id}), method: :post %>
-
+<% if @request %>
+  <%= link_to "Cancel" , request_path(@request) ,method: :delete , data: { confirm: "Are you sure ?"}  %>
+<% else %>
+  <%= link_to "Buy Book", requests_path(requests: {book_id: @book.id}), method: :post %>
+<% end %>
 <%= link_to "Add Review" , new_book_review_path(@book) %>
 <%= link_to "Back" , root_path %>
 <%= link_to "Edit" , edit_book_path(@book) %>

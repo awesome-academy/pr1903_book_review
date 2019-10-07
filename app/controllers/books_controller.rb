@@ -12,6 +12,10 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  def show
+    @request = current_user.requests.find_by(book_id: @book.id)
+  end
+
   def create
     @book = Book.new(book_params)
     if @book.save

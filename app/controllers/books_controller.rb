@@ -5,7 +5,7 @@ class BooksController < ApplicationController
     @books = if params[:term]
       Book.where('title LIKE ?', "%#{params[:term]}%")
     else
-      Book.all.order("created_at DESC")
+      Book.all.order(created_at: :desc)
     end
   end
   def new
